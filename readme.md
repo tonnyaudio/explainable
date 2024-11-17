@@ -15,56 +15,56 @@ Several major dependencies:
 
 ## Overall Framework
     目录
-    1 相关性模型
-        1 数据构造
-            1.1 qwen72B 生成标签与推理过程
-            1.2 qwen72B 反向验证数据
-        2 模型训练
-            2.1 样本评估器
-            2.2 训练调度器
+    1 Relevance Model
+        1Training data construction
+            1.1 Qwen2-72B generates label and reasoning processes
+            1.2 qwen2-72B Reverse validation of training data
+        2 Model training
+            2.1 difficulty measurer
+            2.2 training scheduler
             2.3 lora fine-tune
     2 BehaviorRAG 
-        1 GraphRAG构建
-        2 用户意图获取
-        3 获取相关知识
-    3 生成相关性可解释理由
+        1 process with GraphRA
+        2 QueryIntent and ItemIntent
+        3 explainable information
+    3 Generating the final explainable reason
 
 
 
-1 相关性模型
+1 Relevance Model
 
-    1 数据构造
-        1.1 qwen72B 生成标签与推理过程
-            为了使用qwen2-72B模型构建相关性模型的训练数据:
-            运行以下代码：get_train_data_by_qwen2-72B.py
+    1 Training data construction
+        1.1 Qwen2-72B generates label and reasoning processes
+            To build the correlation model training data using the QWEN2-72B model:
+            Run the following code：get_train_data_by_qwen2-72B.py
 
-        1.2 qwen72B 反向验证数据
-            为了对生成的训练数据进行筛选验证:
-            运行以下代码：verify_train_data_by_qwen2-72B.py
+        1.2 qwen2-72B Reverse validation of training data
+            To filter validation of generated training data
+            Run the following code：verify_train_data_by_qwen2-72B.py
     
-    2 模型训练
-        本代码使用了LLaMA-Factory 框架用于训练 qwen2-7B模型，因此首先需要安装LLaMA-Factory：
-        具体细节：https://github.com/hiyouga/LLaMA-Factory/blob/main/README_zh.md
-        为了使用训练数据训练相关性模型:
-            实现以下功能
-                2.1 样本评估器
-                2.2 训练调度器
+    2 Model training
+        This code uses the LLaMA-Factory framework to train the qwen2-7B model, so you need to install LLaMA-Factory first:
+        Details：https://github.com/hiyouga/LLaMA-Factory/blob/main/README_zh.md
+        To train the correlation model using training data:
+            Implement the following functions
+                2.1 difficulty measurer
+                2.2 training scheduler
                 2.3 lora fine-tune
-            运行以下代码 run_fintune.sh
+            Run the following code： run_fintune.sh
 
     
 2 BehaviorRAG 
     
-    1 GraphRAG构建
-        本代码使用了GraphRAG 用用将非结构化文本转换Graph，因此首先需要安装graphrag
-        具体细节：https://github.com/microsoft/graphrag
+    1 process with GraphRA
+        This code uses GraphRAG to convert unstructured text into Graph, so you need to install graphrag first.
+        Details：https://github.com/microsoft/graphrag
+    2 QueryIntent and ItemIntent
+        Run the following code： get_user_q_i.py
+    3 explainable information
+        Run the following code：  get_gr_result.py
         
-    2 用户意图获取
-        运行代码  get_user_q_i.py
-    3 获取相关知识
-        运行代码  get_gr_result.py
-3 生成相关性可解释理由
-
-    运行以下代码 get_rule_experiment_data_qwen.py
+3 Generating the final explainable reason
+    
+    Run the following code： get_rule_experiment_data_qwen.py
 
 
