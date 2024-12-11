@@ -47,6 +47,7 @@ The embedding model: [bge](https://www.modelscope.cn/models/BAAI/bge-m3)
 Download the weights and put them in `./`.
 
 The public dataset: [amazon](https://amazon-reviews-2023.github.io/)
+
 The Fliggy dataset:  `./explainable/data`
 
 
